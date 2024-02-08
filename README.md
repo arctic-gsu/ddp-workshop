@@ -147,7 +147,7 @@ error_[job_id]
 
 go into that error file and find out error
 
-fix and run again, you should be below statement if you run it successfully
+fix and run again, you should be able to see below statement if your code ran successfully
 ```
 Local worker group finished (WorkerState.SUCCEEDED). Waiting 300 seconds for other agents to finish
 ```
