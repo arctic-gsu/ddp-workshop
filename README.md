@@ -6,7 +6,7 @@
     b. Slides 6-13 [11:30 - 12:00]<br>
     c. Start 2_Single_node_Multi_gpu_torchrun.py [12:00 - 12:15]<br>
     d. Start 3_Multi_node_Multi_gpu_torchrun.py [12:15 - 12:30]<br>
-    e. Write a basic slurm script, run a basic python file test_sbatch.py [12:30 - 12:50]<br>
+    e. Write a basic slurm script, run a basic python file 1_Single_node_Single_gpu.py [12:30 - 12:50]<br>
     f. Start 2_Single_node_Multi_gpu_torchrun.py with slurm [1:00 - 1:15]<br>
     g. Start 3_Multi_node_Multi_gpu_torchrun.py with slurm [1:15 - 1:30]<br>
     h. Questionaire [1:30 - 2:00]<br>
