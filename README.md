@@ -145,8 +145,7 @@ notice [002-003], 2 nodes are being used
 you should encounter an error:
 error_[job_id]
 
-go into that error file
-find out error
+go into that error file and find out error
 
 fix and run again, you should be below statement if you run it successfully
 ```
