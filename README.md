@@ -11,6 +11,33 @@
     g. Start 3_Multi_node_Multi_gpu_torchrun.py with slurm [1:15 - 1:30]<br>
     h. Questionaire [1:30 - 2:00]<br>
 
+## Why Distributed Parallel Programming is needed
+- Training deep learning models takes time.
+- Deep neural networks often consist of millions or billions of parameters that are trained over huge datasets.
+- As deep learning models become more complex, computation time can become unwieldy.
+- Training a model on a single GPU can take weeks, a bigger batch size leads to an Out of Memory error on CUDA.
+- Distributed training can fix this problem.
+- As its name suggests, distributed training distributes training workloads across multiple mini-processors.
+- These mini-processors, referred to as worker nodes, work in parallel to accelerate the training process.
+- Their parallelism can be achieved by data parallelism or model parallelism.
+
+### In summary <br>
+- Saves time
+- Increase the amount of compute
+- Helps train models faster
+- The models can be larger and larger and be harder to fit in a single GPU
+
+## Data Parallelism
+- It would be better if we could use a lot of GPUs for the training step, and end up with one great set of parameters that will fit on a single GPU when we are done.
+- One technique to achieve this is to use Data Parallelism so that each GPU trains on a separate batch of data.
+- At the beginning of the training, the model weights are initialized on one node and sen to all other nodes (Broadcast)
+- After each batch training, the gradients of each node are accumulated on one node(summed up), and then sent to other nodes (All Reduce)
+- At the end of the batch training, each node updates the parameters of its local model, making all the models identical
+  
+
+## Lets start coding:
+
+
 ## Create virtual environment
 ```
 cd ~
