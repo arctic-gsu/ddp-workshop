@@ -28,4 +28,4 @@ rsync -av --exclude 'errors/' --exclude 'outputs/' /home/users/sshrestha8/ARCTIC
 cd ddp_workshop
 
 module load singularity
-srun singularity run --nv -B /etc/libibverbs.d -B /scratch/$SLURM_JOB_ID/ddp_workshop:/scratch/$SLURM_JOB_ID/ddp_workshop /sysapps/singularity_images/pytorch:23.11-py3-arctic.sif /scratch/$SLURM_JOB_ID/ddp_workshop/run_multinode.sh 50 10
+srun singularity run --nv -B /etc/libibverbs.d -B /scratch/$SLURM_JOB_ID/ddp_workshop:/scratch/$SLURM_JOB_ID/ddp_workshop /sysapps/singularity_images/pytorch:23.11-py3-arctic.sif /scratch/$SLURM_JOB_ID/ddp_workshop/run_multinode.sh /scratch/$SLURM_JOB_ID/ddp_workshop/logs 50 10
