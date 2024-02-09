@@ -14,6 +14,9 @@
 vitualenv:
 ```
 /userapp/virtualenv/sshr/workshop/bin/activate
+
+command:
+source /userapp/virtualenv/sshr/workshop/bin/activate
 ```
 ## Why Distributed Parallel Programming is needed
 - Training deep learning models takes time.
