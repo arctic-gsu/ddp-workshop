@@ -45,8 +45,8 @@ module load python
 mkdir -p /userapp/virtualenv/workshop/{username}/
 python3 -m venv /userapp/virtualenv/workshop/{username}/
 python3 -m venv /userapp/virtualenv/workshop/{username}/
-source /userapp/virtualenv/workshop/{username}/bin/activate
 ```
+
 install libraries
 ```
 pip install torch
@@ -79,7 +79,12 @@ srun: job **** queued and waiting for resources
 srun: job **** has been allocated resources
 ```
 
-run python:
+activate environment
+```
+source /userapp/virtualenv/workshop/{username}/bin/activate
+```
+
+cd into the directory where you have your files and then run python:
 ```
 python 1_Single_node_Single_gpu.py
 ```
@@ -95,7 +100,7 @@ Epoch 0 | Training checkpoint saved at checkpoint.pt
 ## Start code for single node multi gpu
 run it through terminal
 ```
-torchrun --standalone --nproc_per_node=gpu 2_Single_node_Multi_gpu_torchrun.py 50 10
+torchrun --standalone --nproc_per_node=2 2_Single_node_Multi_gpu_torchrun.py 50 10
 ```
 output
 ```
@@ -113,13 +118,15 @@ srun -p qGPU24 -A univ1s16 --nodes=1 --ntasks-per-node=1 --gres=gpu:2 --time=04:
 srun -p qGPU24 -A univ1s16 --nodes=1 --ntasks-per-node=1 --gres=gpu:2 --time=04:00:00 --mem=100G -w acidsgcn002 --pty bash
 ```
 
+cd into the project directory <br>
+
 in node1:
 ```
-torchrun --nproc_per_node=2 --nnodes=2 --node_rank=0 --rdzv_id=456 --rdzv_backend=c10d --rdzv_endpoint=acidsgcn002:45346 5.Multi_gpu_torchrun.py 50 10
+torchrun --nproc_per_node=2 --nnodes=2 --node_rank=0 --rdzv_id=456 --rdzv_backend=c10d --rdzv_endpoint=acidsgcn002:6000 3_Multi_node_Multi_gpu_torchrun.py 50 10
 ```
 in node2:
 ```
-torchrun --nproc_per_node=2 --nnodes=2 --node_rank=1 --rdzv_id=456 --rdzv_backend=c10d --rdzv_endpoint=acidsgcn002:45346 5.Multi_gpu_torchrun.py 50 10
+torchrun --nproc_per_node=2 --nnodes=2 --node_rank=1 --rdzv_id=456 --rdzv_backend=c10d --rdzv_endpoint=acidsgcn002:6000 3_Multi_node_Multi_gpu_torchrun.py 50 10
 ```
 
 output from node1 terminal:
