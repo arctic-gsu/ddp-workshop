@@ -93,20 +93,14 @@ def prepare_dataloader(dataset: Dataset, batch_size: int):
 
 def main(save_every: int, total_epochs: int, batch_size: int, snapshot_path: str = "snapshot.pt"):
     ddp_setup()
-    print(2)
     dataset, model, optimizer = load_train_objs()
-    print(3)
     train_data = prepare_dataloader(dataset, batch_size)
-    print(4)
     trainer = Trainer(model, train_data, optimizer, save_every, snapshot_path)
-    print(5)
     trainer.train(total_epochs)
-    print(6)
     destroy_process_group()
 
 
 if __name__ == "__main__":
-    print(1)
     import argparse
     parser = argparse.ArgumentParser(description='simple distributed training job')
     parser.add_argument('total_epochs', type=int, help='Total epochs to train the model')
