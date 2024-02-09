@@ -11,6 +11,10 @@
     g. Start 3_Multi_node_Multi_gpu_torchrun.py with slurm [1:15 - 1:30]<br>
     h. Questionaire [1:30 - 2:00]<br>
 
+vitualenv:
+```
+/userapp/virtualenv/sshr/workshop/bin/activate
+```
 ## Why Distributed Parallel Programming is needed
 - Training deep learning models takes time.
 - Deep neural networks often consist of millions or billions of parameters that are trained over huge datasets.
